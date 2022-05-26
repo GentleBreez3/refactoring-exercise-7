@@ -1,0 +1,69 @@
+<div>
+    <% if @user.id == current_user.id %>
+        <p>
+        <strong>Name:</strong>
+            <%= @user.name %>
+        </p>
+
+        <p>
+        <strong>Email:</strong>
+            <%= @user.email %>
+        </p>
+
+        <p>
+        <strong>Address:</strong>
+            <%= @user.address %>
+        </p>
+
+        <p>
+        <strong>Birth date:</strong>
+            <%= @user.birthday %>
+        </p>
+        <%= link_to 'Back', root_path %>
+        <% elsif current_user.followees.include?(@user) %>
+            <p>
+            <strong>Name:</strong>
+                <%= @user.name %>
+            </p>
+
+            <p>
+            <strong>Email:</strong>
+                <%= @user.email %>
+            </p>
+
+            <p>
+            <strong>Address:</strong>
+                <%= @user.address %>
+            </p>
+
+            <p>
+            <strong>Birth date:</strong>
+                <%= @user.birthday %>
+            </p>
+            <%= link_to 'Back', root_path %>
+            <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
+        <% else %>
+            <p>
+            <strong>Name:</strong>
+                <%= @user.name %>
+            </p>
+
+            <p>
+            <strong>Email:</strong>
+                <%= @user.email %>
+            </p>
+
+            <p>
+            <strong>Address:</strong>
+                <%= @user.address %>
+            </p>
+
+            <p>
+            <strong>Birth date:</strong>
+                <%= @user.birthday %>
+            </p>
+            <%= link_to 'Back', root_path %>
+            <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
+    <% end%>
+    <br>
+</div>

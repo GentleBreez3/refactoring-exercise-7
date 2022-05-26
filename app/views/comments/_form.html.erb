@@ -1,0 +1,10 @@
+<%= simple_form_for([@post, @post.comments.build]) do |form| %>
+  
+   <div>
+        <%= form.text_field :content %>
+    </div>
+    
+    <div>
+        <%= form.submit %>
+    </div>
+<% end %>
